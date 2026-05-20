@@ -37,13 +37,13 @@
             <div>
 
                 <img
-                    src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&auto=format&fit=crop"
+                    src="{{ asset('images/maison1.jpg')}}"
                     alt="Gestion immobilière"
                     class="rounded-2xl shadow-lg">
 
             </div>
 
-            <!-- TEXT -->
+
             <div>
 
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">

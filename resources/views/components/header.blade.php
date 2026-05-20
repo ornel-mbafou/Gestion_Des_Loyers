@@ -103,13 +103,8 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{route('google')}}" class="text-orange-500">
-                        google
-                    </a>
-                </li>
 
-                 <li>
+                <li>
                     <a href="{{route('das')}}" class="text-orange-500">
                         test dasbord
                     </a>
@@ -139,7 +134,20 @@
                 </li>
 
                 <!-- Button -->
+
                 <li>
+
+                    <a href="{{route('login')}}"
+                        class="bg-orange-500 text-white px-5 py-3 rounded-full hover:bg-orange-600 transition flex items-center gap-2">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Connexion
+
+                    </a>
+
+                </li>
+                <!-- <li>
                     <a href="{{route('visit')}}"
                         class="bg-black text-white rounded-full pl-1 pr-6 py-1 flex items-center gap-3 hover:bg-orange-500 transition duration-300">
 
@@ -151,7 +159,7 @@
 
                         Planifiez une visite
                     </a>
-                </li>
+                </li> -->
 
             </ul>
 
@@ -202,6 +210,20 @@
             </li>
 
             <li>
+
+                <a href="{{route('login')}}"
+                    class="bg-orange-500 text-white px-5 py-3 rounded-xl inline-flex items-center gap-2">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Connexion
+
+                </a>
+
+            </li>
+
+<!--
+            <li>
                 <a href="{{route('visit')}}"
                     class="bg-black text-white px-5 py-3 rounded-full inline-flex items-center gap-3">
 
@@ -214,7 +236,7 @@
 
                     Planifiez une visite
                 </a>
-            </li>
+            </li> -->
 
         </ul>
     </div>

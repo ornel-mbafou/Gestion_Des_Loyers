@@ -69,6 +69,7 @@
 
                     <input type="date"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        
 
                 </div>
 

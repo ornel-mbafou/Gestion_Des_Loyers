@@ -103,8 +103,15 @@
                     </a>
                 </li>
 
+
                 <li>
-                    <a href="#"
+                    <a href="{{route('das')}}" class="text-orange-500">
+                        test dasbord
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('logement')}}"
                         class="hover:text-orange-500 transition">
                         Logements
                     </a>
@@ -112,7 +119,7 @@
 
 
                 <li>
-                    <a href="#" class="hover:text-orange-500 transition">
+                    <a href="{{route('apropos')}}" class="hover:text-orange-500 transition">
                         À propos
                     </a>
                 </li>
@@ -120,15 +127,28 @@
 
 
                 <li>
-                    <a href="#"
+                    <a href="{{route('contact')}}"
                         class="hover:text-orange-500 transition">
                         Contact Us
                     </a>
                 </li>
 
                 <!-- Button -->
+
                 <li>
-                    <a href="#"
+
+                    <a href="{{route('login')}}"
+                        class="bg-orange-500 text-white px-5 py-3 rounded-full hover:bg-orange-600 transition flex items-center gap-2">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Connexion
+
+                    </a>
+
+                </li>
+                <!-- <li>
+                    <a href="{{route('visit')}}"
                         class="bg-black text-white rounded-full pl-1 pr-6 py-1 flex items-center gap-3 hover:bg-orange-500 transition duration-300">
 
                         <span class="bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center text-white">
@@ -137,9 +157,9 @@
 
                         </span>
 
-                        Schedule a visit
+                        Planifiez une visite
                     </a>
-                </li>
+                </li> -->
 
             </ul>
 
@@ -169,28 +189,42 @@
             </li>
 
             <li>
-                <a href="#"
+                <a href="{{route('logement')}}"
                     class="hover:text-orange-500">
                     Logements
                 </a>
             </li>
 
             <li>
-                <a href="#"
+                <a href="{{route('apropos')}}"
                     class="hover:text-orange-500">
                     À propos
                 </a>
             </li>
 
             <li>
-                <a href="#"
+                <a href="{{route('contact')}}"
                     class="hover:text-orange-500">
                     Contact Us
                 </a>
             </li>
 
             <li>
-                <a href="#"
+
+                <a href="{{route('login')}}"
+                    class="bg-orange-500 text-white px-5 py-3 rounded-xl inline-flex items-center gap-2">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Connexion
+
+                </a>
+
+            </li>
+
+<!--
+            <li>
+                <a href="{{route('visit')}}"
                     class="bg-black text-white px-5 py-3 rounded-full inline-flex items-center gap-3">
 
                     <span class="bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center text-white">
@@ -200,9 +234,9 @@
                     </span>
 
 
-                    Schedule a visit
+                    Planifiez une visite
                 </a>
-            </li>
+            </li> -->
 
         </ul>
     </div>

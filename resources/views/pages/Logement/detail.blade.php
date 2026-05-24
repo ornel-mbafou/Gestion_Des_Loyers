@@ -170,7 +170,7 @@
                     </div>
 
                     <!-- Button -->
-                    <a href="#"
+                    <a href="{{route('visit')}}"
                         class="mt-10 bg-black text-white py-4 rounded-full flex items-center justify-center gap-3 hover:bg-orange-500 transition duration-300">
 
                         <span

@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="p-8 bg-gray-100 min-h-screen ml-72 mt-20">
+<div class="p-8 bg-gray-100 min-h-screen">
 
     <!-- PAGE TITLE -->
     <div class="mb-8">

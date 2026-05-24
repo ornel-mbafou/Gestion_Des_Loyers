@@ -1,23 +1,9 @@
 {{-- resources/views/auth/register.blade.php --}}
+@extends('layouts.auth')
+@section('title', 'register')
+@section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Register</title>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="bg-gray-100">
-
-
-
-    <main>
-        <div class="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
+ <div class="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
 
             <div class="w-full max-w-lg bg-white rounded-3xl shadow-xl overflow-hidden">
 
@@ -62,7 +48,7 @@
                     </div>
 
                     <!-- FORM -->
-                    <form action="" method="POST" class="space-y-5">
+                    <form action="{{route('register.store')}}" method="POST" class="space-y-5">
 
                         @csrf
 
@@ -83,6 +69,7 @@
 
                                 <input type="text"
                                     name="name"
+                                    value="{{ old('name') }}"
                                     placeholder="Jean Dupont"
                                     class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
@@ -106,11 +93,12 @@
                                 </span>
 
                                 <input type="email"
-                                    name="email"
+                                    name="email" value="{{ old('email') }}"
                                     placeholder="exemple@gmail.com"
                                     class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
                             </div>
+
 
                         </div>
 
@@ -131,6 +119,7 @@
 
                                 <input type="text"
                                     name="telephone"
+                                    value="{{ old('telephone') }}"
                                     placeholder="+237 6XXXXXXXX"
                                     class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
@@ -221,10 +210,10 @@
             </div>
 
         </div>
-    </main>
+
+
+@endsection
 
 
 
-</body>
 
-</html>

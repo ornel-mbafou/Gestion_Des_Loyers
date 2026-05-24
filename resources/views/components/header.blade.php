@@ -104,11 +104,6 @@
                 </li>
 
 
-                <li>
-                    <a href="{{route('das')}}" class="text-orange-500">
-                        test dasbord
-                    </a>
-                </li>
 
                 <li>
                     <a href="{{route('logement')}}"

@@ -1,21 +1,7 @@
 {{-- resources/views/auth/login.blade.php --}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>login</title>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="bg-gray-100">
-
-
-
-    <main>
-
+@extends('layouts.auth')
+@section('tiltel', 'Login')
+@section('content')
 
 <div class="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-4">
 
@@ -24,19 +10,19 @@
         <!-- TOP -->
         <div class="bg-orange-500 px-8 py-2 text-center">
 
-           <div class="flex items-center justify-center gap-4">
+            <div class="flex items-center justify-center gap-4">
 
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-orange-500 text-3xl shadow-lg">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-orange-500 text-3xl shadow-lg">
 
 
-                            <i class="fa-solid fa-house"></i>
+                    <i class="fa-solid fa-house"></i>
 
-                        </div>
+                </div>
 
-                        <h1 class="text-2xl font-bold text-white">
-                            GEST-IMMO
-                        </h1>
-                    </div>
+                <h1 class="text-2xl font-bold text-white">
+                    GEST-IMMO
+                </h1>
+            </div>
 
             <p class="text-orange-100 mt-2 text-sm">
                 Plateforme de gestion des loyers
@@ -61,7 +47,7 @@
             </div>
 
             <!-- FORM -->
-            <form action="" method="POST" class="space-y-6">
+            <form action="{{route('logins')}}" method="POST" class="space-y-6">
 
                 @csrf
 
@@ -82,7 +68,7 @@
 
                         <input type="email"
                             name="email"
-                            placeholder="exemple@gmail.com"
+                            placeholder="exemple@gmail.com" value="{{ old('email') }}"
                             class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
                     </div>
@@ -170,9 +156,4 @@
 
 </div>
 
-
-    </main>
-
-</body>
-</html>
-
+@endsection

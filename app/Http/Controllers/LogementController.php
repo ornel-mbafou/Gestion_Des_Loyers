@@ -13,7 +13,7 @@ class LogementController extends Controller
     {
         try {
             $logements = Logement::all();
-            return view('pages.Logement.logement', compact('logements'));
+            return view('pages.Logement.list', compact('logements'));
         } catch (\Exception $e) {
             // Gérer les erreurs, par exemple en affichant un message d'erreur
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la récupération des logements.');
@@ -52,10 +52,11 @@ class LogementController extends Controller
                 $logement->image3 = $request->file('image3')->store('logement_images', 'public');
             }
 
+            $logement->gestionnaire_id = auth()->id();
             // Enregistrer le logement dans la base de données
             $logement->save();
 
-            return redirect()->route('logement')->with('success', 'Logement créé avec succès.');
+            return redirect()->route('logement.list')->with('success', 'Logement créé avec succès.');
         } catch (\Exception $e) {
             // Gérer les erreurs, par exemple en affichant un message d'erreur
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la création du logement.');
@@ -106,7 +107,7 @@ class LogementController extends Controller
             // Enregistrer les modifications du logement dans la base de données
             $logement->save();
 
-            return redirect()->route('logement')->with('success', 'Logement mis à jour avec succès.');
+            return redirect()->route('logement.list')->with('success', 'Logement mis à jour avec succès.');
         } catch (\Exception $e) {
             // Gérer les erreurs, par exemple en affichant un message d'erreur
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la mise à jour du logement.');

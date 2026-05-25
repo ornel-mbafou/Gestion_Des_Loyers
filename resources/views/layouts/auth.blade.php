@@ -14,13 +14,13 @@
 
 <body class="bg-gray-100">
 
-    @include('components.header')
+
 
     <main>
         @yield('content')
     </main>
 
-    @include('components.footer')
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Logement extends Model
 {
@@ -23,4 +24,8 @@ class Logement extends Model
         'image3',
 
     ];
+
+    public function gestionnaire():BelongsTo{
+        return $this->belongsTo(User::class, 'gestionnaire_id');
+    }
 }

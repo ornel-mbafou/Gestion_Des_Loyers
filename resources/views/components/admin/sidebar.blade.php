@@ -94,7 +94,7 @@
             <!-- LOGEMENTS -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('logement.list') }}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-building"></i>

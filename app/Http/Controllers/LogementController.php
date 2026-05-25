@@ -13,7 +13,7 @@ class LogementController extends Controller
     {
         try {
             $logements = Logement::all();
-            return view('pages.Logement.logement', compact('logements'));
+            return view('pages.Logement.list', compact('logements'));
         } catch (\Exception $e) {
             // Gérer les erreurs, par exemple en affichant un message d'erreur
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la récupération des logements.');

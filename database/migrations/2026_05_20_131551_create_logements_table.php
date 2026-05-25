@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('image1');
             $table->string('image2')->nullable();  
             $table->string('image3')->nullable();
+            $table->foreignId('gestionnaire_id')->constrained('users')->onDelete('cascade');
 
             $table->timestamps();
         });

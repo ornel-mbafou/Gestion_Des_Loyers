@@ -61,7 +61,7 @@ Route::view('/visit', 'pages.visit')->name('visit');
 
 
 //Route User
-Route::get('/', [UserController::class, 'list'])->name('users.list');
+Route::get('dash-admin/list-users', [UserController::class, 'list'])->name('users.list');
 Route::get('dash-admin/create-users', [UserController::class, 'create'])->name('users.create');
 Route::post('dash-admin/store-users', [UserController::class, 'store'])->name('users.store');
 Route::get('dash-admin/edit-users/{user}', [UserController::class, 'edit'])->name('users.edit');
@@ -70,13 +70,21 @@ Route::delete('delete-users/{user}', [UserController::class, 'destroy'])->name('
 
 
 // Route Logement
-Route::get('/logement', [LogementController::class, 'index'])->name('logement.list');
+Route::get('dash-admin/logement', [LogementController::class, 'index'])->name('logement.list');
 Route::get('dash-admin/create-logement', [LogementController::class, 'create'])->name('logement.create');
 Route::post('dash-admin/store-logement', [LogementController::class, 'store'])->name('logement.store');
 Route::get('dash-admin/edit-logement/{id}', [LogementController::class, 'edit'])->name('logement.edit');
 Route::post('update-logement/{id}', [LogementController::class, 'update'])->name('logement.update');
 Route::delete('delete-logement/{id}', [LogementController::class, 'destroy'])->name('logement.delete');
-Route::get('/detail-logement/{id}', [LogementController::class, 'show'])->name('logement.detail');
-Route::get('delete/{id}', [LogementController::class, 'destroy'])->name('logement.delete');
+Route::get('dash-admin/detail-logement/{id}', [LogementController::class, 'show'])->name('logement.detail');
+Route::get('dash-admin/delete/{id}', [LogementController::class, 'destroy'])->name('logement.delete');
 
-
+// Route Logement
+Route::get('dash-gestionnaire/logement', [LogementController::class, 'index'])->name('logement.list');
+Route::get('dash-gestionnaire/create-logement', [LogementController::class, 'create'])->name('logement.create');
+Route::post('dash-gestionnaire/store-logement', [LogementController::class, 'store'])->name('logement.store');
+Route::get('dash-gestionnaire/edit-logement/{id}', [LogementController::class, 'edit'])->name('logement.edit');
+Route::post('update-logement/{id}', [LogementController::class, 'update'])->name('logement.update');
+Route::delete('delete-logement/{id}', [LogementController::class, 'destroy'])->name('logement.delete');
+Route::get('dash-gestionnaire/detail-logement/{id}', [LogementController::class, 'show'])->name('logement.detail');
+Route::get('dash-gestionnaire/delete/{id}', [LogementController::class, 'destroy'])->name('logement.delete');

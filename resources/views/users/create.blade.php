@@ -25,10 +25,22 @@
 
 
         <!-- FORM -->
-        <form action="{{ route('users.store') }}"
-            method="POST">
+        <form action="{{ route('users.store') }} " method="POST" enctype="multipart/form-data">
 
             @csrf
+
+            <!-- IMAGE -->
+            <div class="mb-5">
+
+                <label class="block mb-2 font-medium text-gray-700">
+                    Image
+                </label>
+
+                <input type="file"
+                    name="image"
+                    class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
+
+            </div>
 
             <!-- NAME -->
             <div class="mb-5">
@@ -72,40 +84,6 @@
                     class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
 
             </div>
-
-            <!-- PASSWORD -->
-            <div class="mb-5">
-
-                <label class="block mb-2 font-medium text-gray-700">
-                    Mot de passe
-                </label>
-
-                <input type="password"
-                    name="password"
-                    class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
-            </div>
-
-
-
-            <!-- CONFIRM PASSWORD -->
-            <div class="mb-5">
-
-                <label class="block mb-2 font-medium text-gray-700">
-                    Confirmer le mot de passe
-                </label>
-
-                <div class="relative">
-
-                    <input type="password"
-                        name="password_confirmation"
-                        placeholder="********"
-                        class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
-                </div>
-
-            </div>
-
 
             <!-- ROLE -->
             <div class="mb-6">

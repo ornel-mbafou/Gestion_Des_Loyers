@@ -56,26 +56,31 @@ class AuthController extends Controller
         $data = $request->validate([
             'email' => ['required', 'email'],
             'verification_code' => ['required', 'numeric', 'digits:6'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        //on cherche l'utilisateur avec son email
+        // On cherche l'utilisateur avec son email
         $user = User::where('email', $data['email'])->first();
 
         if (!$user) {
             return redirect()->back()->withErrors(['email' => 'Utilisateur introuvable.']);
         }
 
+        // On vérifie le code à 6 chiffres
         if ($user->verification_code == $data['verification_code']) {
 
-               $user-> email_verified_at = now();
-                $user-> verification_code = null;
+            $user->email_verified_at = now();
+            $user->verification_code = null;
+
+            // ON RAJOUTE : On enregistre le vrai mot de passe choisi par l'utilisateur !
+            $user->password = Hash::make($data['password']);
 
             $user->save();
 
-            // C'est bon  On redirige vers le login
-            return redirect()->route('login')->with('succes', 'Votre compte est validé, vous pouvez vous connecter !');
+            return redirect()->route('login')->with('succes', 'Votre compte est validé et configuré, vous pouvez vous connecter !');
         }
-        //Si le code tapé est faux, il faut informer l'utilisateur !
+
+        // Si le code tapé est faux
         return redirect()->back()
             ->withErrors(['verification_code' => 'Le code de vérification est incorrect.'])
             ->withInput();

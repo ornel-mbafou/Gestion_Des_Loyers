@@ -8,6 +8,7 @@
     <title>@yield('title', config('app.name'))</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
     <!-- CDN SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

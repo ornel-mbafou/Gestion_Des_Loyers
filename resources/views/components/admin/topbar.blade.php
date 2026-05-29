@@ -58,30 +58,31 @@
             </button>
 
             <!-- PROFILE -->
-            <div
-                class="flex items-center gap-3 bg-gray-100 px-3 py-2 rounded-xl cursor-pointer hover:bg-orange-100 transition">
+            <div class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-2xl cursor-pointer hover:bg-gray-200 transition">
 
-                <!-- IMAGE -->
-                <img
-                    src="{{ asset('images/photo de profil/admin.jpg')}}"
-                    alt="Profil"
-                    class="w-11 h-11 rounded-full object-cover">
+                @if(auth()->user()->image)
+                <img src="{{ asset('storage/' . auth()->user()->image) }}"
+                    alt="Profil de {{ auth()->user()->name }}"
+                    class="w-12 h-12 rounded-full object-cover border-2 border-orange-500">
+                @else
+                <img src="{{ asset('images/default-avatar.png') }}"
+                    alt="Profil par défaut"
+                    class="w-12 h-12 rounded-full object-cover border-2 border-orange-500 opacity-80">
+                @endif
 
-                <!-- INFO -->
                 <div class="hidden md:block">
 
-                    <h4 class="text-sm font-semibold text-gray-800">
-                        Admin
-                    </h4>
+                    <h3 class="text-sm font-semibold text-gray-800 capitalize">
+                        {{ auth()->user()->name }}
+                    </h3>
 
-                    <p class="text-xs text-gray-500">
-                        Administrateur
+                    <p class="text-xs text-gray-500 uppercase font-medium tracking-wider">
+                        {{ auth()->user()->roles }}
                     </p>
 
                 </div>
 
-                <!-- ICON -->
-                <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>
 
             </div>
 

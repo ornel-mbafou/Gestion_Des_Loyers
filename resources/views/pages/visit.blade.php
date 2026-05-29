@@ -4,102 +4,73 @@
 
 @section('content')
 
-<!-- HERO -->
 <section class="bg-gray-900 py-24">
-
     <div class="max-w-7xl mx-auto px-4 lg:px-8 text-center">
-
-        <div class="inline-block bg-white px-4 py-2 text-sm font-medium uppercase mb-6">
+        <div class="inline-block bg-white px-4 py-2 text-sm font-medium uppercase mb-6 text-gray-800 rounded">
             Accueil / Visite
         </div>
-
         <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">
             Planifier une visite
         </h1>
-
         <p class="text-gray-300 max-w-2xl mx-auto leading-8">
-            Remplissez ce formulaire pour demander une visite d’un logement.
+            Remplissez ce formulaire pour demander une visite du logement .
         </p>
-
     </div>
-
 </section>
 
-<!-- FORM SECTION -->
 <section class="py-20 bg-white">
-
     <div class="max-w-4xl mx-auto px-4 lg:px-8">
-
         <div class="bg-gray-100 rounded-2xl shadow-sm p-10">
 
             <form action="#" method="POST" class="space-y-6">
 
-                <!-- NOM -->
+                @csrf <input type="hidden" name="logement_id" value="">
+
                 <div>
-
-                    <label class="block mb-2 font-medium text-gray-700">
-                        Nom complet
-                    </label>
-
+                    <label class="block mb-2 font-medium text-gray-700">Nom complet</label>
                     <input type="text"
+                        name="nom_visiteur" value="{{ old('nom_visiteur') }}"
+                        required
                         placeholder="Entrez votre nom"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
+                    @error('nom_visiteur') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
 
-                <!-- TELEPHONE -->
                 <div>
-
-                    <label class="block mb-2 font-medium text-gray-700">
-                        Téléphone
-                    </label>
-
+                    <label class="block mb-2 font-medium text-gray-700">Téléphone</label>
                     <input type="tel"
+                        name="telephone_visiteur" value="{{ old('telephone_visiteur') }}"
+                        required
                         placeholder="Ex : +237 6 99 99 99 99"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
+                    @error('telephone_visiteur') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
 
-                <!-- DATE -->
                 <div>
-
-                    <label class="block mb-2 font-medium text-gray-700">
-                        Date de visite
-                    </label>
-
-                    <input type="date"
+                    <label class="block mb-2 font-medium text-gray-700">Date et Heure de visite</label>
+                    <input type="datetime-local" name="date_visite" value="{{ old('date_visite') }}"
+                        required
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                        
-
+                    @error('date_visite') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
 
-                <!-- MESSAGE -->
                 <div>
-
-                    <label class="block mb-2 font-medium text-gray-700">
-                        Message (optionnel)
-                    </label>
-
+                    <label class="block mb-2 font-medium text-gray-700">Message (optionnel)</label>
                     <textarea rows="5"
-                        placeholder="Donnez des détails si nécessaire..."
-                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"></textarea>
-
+                        name="commentaire" placeholder="Donnez des détails si nécessaire..."
+                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">{{ old('commentaire') }}</textarea>
+                    @error('commentaire') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
 
-                <!-- BUTTON -->
                 <button type="submit"
-                    class="w-full bg-black text-white py-4 rounded-full hover:bg-orange-500 transition duration-300">
-
-                    Envoyer la demande
-
+                    class="w-full bg-black text-white py-4 rounded-full hover:bg-orange-500 transition duration-300 font-semibold">
+                    Envoyer la demande de visite
                 </button>
 
             </form>
 
         </div>
-
     </div>
-
 </section>
 
 @endsection

@@ -78,7 +78,7 @@
             <!-- GESTIONNAIRES -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('users.list', ['role' => 'gestionnaire']) }}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-user-tie"></i>
@@ -110,7 +110,7 @@
             <!-- LOCATAIRES -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('users.list', ['role' => 'locataire']) }}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-users"></i>

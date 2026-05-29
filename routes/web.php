@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VisiteController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -66,5 +67,13 @@ Route::post('dash-admin/store-users', [UserController::class, 'store'])->name('u
 Route::get('dash-admin/edit-users/{user}', [UserController::class, 'edit'])->name('users.edit');
 Route::post('update-users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('delete-users/{user}', [UserController::class, 'destroy'])->name('users.delete');
+
+
+//Route Visite
+// Route pour afficher le formulaire (on passe l'ID du logement dans l'URL)
+Route::get('/logements/{logement}/visite', [VisiteController::class, 'create'])->name('visites.create');
+
+// Route pour enregistrer le formulaire
+Route::post('/visites', [VisiteController::class, 'store'])->name('visites.store');
 
 

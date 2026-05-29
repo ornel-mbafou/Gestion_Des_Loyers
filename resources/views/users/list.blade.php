@@ -5,12 +5,18 @@
 
 <div class="p-8">
 
-    <h1 class="text-3xl font-bold mb-6">
+   <h1 class="text-3xl font-bold mb-6 text-gray-800">
+    @if(request('role') == 'gestionnaire')
+        Liste des Gestionnaires
+    @elseif(request('role') == 'locataire')
+        Liste des Locataires
+    @else
         Liste des utilisateurs
-    </h1>
+    @endif
+</h1>
 
     <a href="{{route('users.create')}}"
-       class="bg-orange-500 text-white px-4 py-2 rounded">
+        class="bg-orange-500 text-white px-4 py-2 rounded">
 
         Ajouter utilisateur
 
@@ -25,6 +31,10 @@
                 <tr class="border-b">
 
                     <th class="text-left py-3">
+                        Image
+                    </th>
+
+                    <th class="text-left py-3">
                         Nom
                     </th>
 
@@ -32,7 +42,7 @@
                         Email
                     </th>
 
-                     <th class="text-left py-3">
+                    <th class="text-left py-3">
                         Telephone
                     </th>
 
@@ -56,6 +66,15 @@
 
                     <td class="py-4">
 
+
+                        <img src="{{ asset('storage/' . $user->image) }}"
+                            alt="Image utilisateur"
+                            class="w-16 h-16 object-cover rounded-lg">
+
+                    </td>
+
+                    <td class="py-4">
+
                         {{ $user->name }}
 
                     </td>
@@ -66,7 +85,7 @@
 
                     </td>
 
-                      <td class="py-4">
+                    <td class="py-4">
 
                         {{ $user->telephone }}
 
@@ -81,22 +100,22 @@
                     <td class="py-4 flex gap-3">
 
                         <a href="{{ route('users.edit', $user->id) }}"
-                           class="text-blue-500">
+                            class="text-blue-500">
 
                             Modifier
 
                         </a>
 
-                        <form action="{{ route('users.delete', $user->id) }}"
-                              method="POST"
-                               onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+                        <form action="{{ route('users.delete', $user->id) }}" 
+                            method="POST"
+                            onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
 
 
                             @csrf
                             @method('DELETE')
 
                             <button type="submit"
-                                    class="text-red-500">
+                                class="text-red-500">
 
                                 Supprimer
 

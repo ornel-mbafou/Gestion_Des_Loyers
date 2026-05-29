@@ -37,14 +37,11 @@
                 </h2>
 
                 <p class="text-gray-500 mt-2 text-sm leading-6">
-                    Entrez votre adresse email ainsi que le code
-                    de vérification reçu par email.
+                    Entrez votre code de vérification reçu par email.
                 </p>
 
             </div>
 
-            {{-- ERRORS --}}
-            @if($errors->any())
 
             <div class="mb-6 bg-red-100 border border-red-300 text-red-700 px-5 py-4 rounded-xl">
 
@@ -52,10 +49,7 @@
 
                     <i class="fa-solid fa-circle-exclamation"></i>
 
-                    <span>
-                        {{ $errors->first() }}
-                    </span>
-
+                 
                 </div>
 
             </div>
@@ -84,11 +78,7 @@
 
                         </span>
 
-                        <input type="email"
-                            name="email"
-                            value="{{ old('email') }}"
-                            placeholder="exemple@gmail.com"
-                            required
+                        <input type="email" name="email" value="{{ request('email', old('email'))}}" required
                             class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
                     </div>
@@ -119,6 +109,54 @@
                     </div>
 
                 </div>
+
+                 <!-- PASSWORD -->
+                        <div>
+
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Mot de passe
+                            </label>
+
+                            <div class="relative">
+
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+
+                                    <i class="fa-solid fa-lock"></i>
+
+                                </span>
+
+                                <input type="password"
+                                    name="password"
+                                    placeholder="********"
+                                    class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
+
+                            </div>
+
+                        </div>
+
+                        <!-- CONFIRM PASSWORD -->
+                        <div>
+
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Confirmer le mot de passe
+                            </label>
+
+                            <div class="relative">
+
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+
+                                    <i class="fa-solid fa-lock"></i>
+
+                                </span>
+
+                                <input type="password"
+                                    name="password_confirmation"
+                                    placeholder="********"
+                                    class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
+
+                            </div>
+
+                        </div>
 
                 <!-- BUTTON -->
                 <button type="submit"

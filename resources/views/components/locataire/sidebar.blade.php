@@ -46,7 +46,7 @@
             <!-- DASHBOARD -->
             <li>
 
-                <a href="#"
+                <a href="{{route('dash-locataire')}}"
                    class="flex items-center gap-4 px-4 py-3 rounded-2xl bg-orange-500 text-white shadow-sm">
 
                     <i class="fa-solid fa-chart-line text-lg"></i>
@@ -62,7 +62,7 @@
             <!-- MON LOGEMENT -->
             <li>
 
-                <a href="#"
+                <a href="{{route('locataire.logement.list')}}"
                    class="flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition duration-300">
 
                     <i class="fa-solid fa-house text-lg"></i>
@@ -78,7 +78,7 @@
             <!-- MES PAIEMENTS -->
             <li>
 
-                <a href="#"
+                <a href="{{route('locataire.paiements.index')}}"
                    class="flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition duration-300">
 
                     <i class="fa-solid fa-money-bill-wave text-lg"></i>
@@ -94,7 +94,7 @@
             <!-- MON CONTRAT -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('locataire.contrats.index')}}"
                    class="flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition duration-300">
 
                     <i class="fa-solid fa-file-contract text-lg"></i>
@@ -110,7 +110,7 @@
             <!-- VISITES -->
             <li>
 
-                <a href="#"
+                <a href="{{route('locataire.visites.index')}}"
                    class="flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition duration-300">
 
                     <i class="fa-solid fa-calendar-check text-lg"></i>
@@ -142,7 +142,7 @@
             <!-- PROFIL -->
             <li>
 
-                <a href="#"
+                <a href="{{route('locataire.profile.show')}}"
                    class="flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition duration-300">
 
                     <i class="fa-solid fa-user text-lg"></i>

@@ -58,9 +58,11 @@
 
             <div style="margin: 32px 0; text-align: center;">
                 <a href="{{ route('code.page', ['email' => $user->email]) }}"
-                   style="display: inline-block; background-color: #f97316; color: #ffffff; padding: 16px 32px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2), 0 2px 4px -1px rgba(249, 115, 22, 0.1); transition: background-color 0.2s;">
+                    style="display: inline-block; background-color: #f97316; color: #ffffff; padding: 16px 32px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2), 0 2px 4px -1px rgba(249, 115, 22, 0.1); transition: background-color 0.2s;">
                     Activer et configurer mon compte
                 </a>
+
+               
                 <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">
                     Ou copiez le code et rendez-vous sur l'application.
                 </p>

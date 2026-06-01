@@ -12,6 +12,7 @@ class Visite extends Model
         'logement_id',
         'nom_visiteur',
         'telephone_visiteur',
+        'email_visiteur',
         'date_visite',
         'statut',
         'commentaire',

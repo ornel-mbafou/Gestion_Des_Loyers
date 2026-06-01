@@ -17,9 +17,13 @@
 
     <div class="bg-white rounded-xl shadow p-6 max-w-2xl">
 
-        <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="@if(auth()->user()->roles === 'admin') {{ route('admin.users.update', $user->id) }} @else {{ route('gestionnaire.users.update', $user->id) }} @endif"
+              method="POST"
+              enctype="multipart/form-data">
 
             @csrf
+            {{-- Ne pas oublier le @method('PUT') ou @method('POST') selon ce que demande ton fichier web.php --}}
+
             <div class="mb-5">
                 <label class="block mb-2 font-medium text-gray-700">
                     Image de profil
@@ -36,7 +40,6 @@
                     name="image"
                     accept="image/*"
                     class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
             </div>
 
             <div class="mb-5">
@@ -45,9 +48,7 @@
                 </label>
                 <input type="text"
                     name="name"
-                    value="{{ old('name', $user->name) }}" class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
-
+                    value="{{ old('name', $user->name) }}" class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
             </div>
 
             <div class="mb-5">
@@ -56,8 +57,7 @@
                 </label>
                 <input type="email"
                     name="email"
-                    value="{{ old('email', $user->email) }}" class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-
+                    value="{{ old('email', $user->email) }}" class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
             </div>
 
             <div class="mb-5">
@@ -73,26 +73,19 @@
                 <label class="block mb-2 font-medium text-gray-700">
                     Rôle
                 </label>
-                <select name="roles"
-                    class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
 
-                    <option value="">Choisir un rôle</option>
+                <select name="roles" class="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500" required>
 
-                    <option value="admin" {{ old('roles', $user->roles) == 'admin' ? 'selected' : '' }}>
-                        Admin
-                    </option>
+                    @if(auth()->user()->roles !== 'admin')
+                        <option value="locataire" selected>Locataire</option>
+                    @else
+                        <option value="">Choisir un rôle</option>
+                        <option value="admin" {{ old('roles', $user->roles) == 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="gestionnaire" {{ old('roles', $user->roles) == 'gestionnaire' ? 'selected' : '' }}>Gestionnaire</option>
+                        <option value="locataire" {{ old('roles', $user->roles) == 'locataire' ? 'selected' : '' }}>Locataire</option>
+                        <option value="user" {{ old('roles', $user->roles) == 'user' ? 'selected' : '' }}>User</option>
+                    @endif
 
-                    <option value="gestionnaire" {{ old('roles', $user->roles) == 'gestionnaire' ? 'selected' : '' }}>
-                        Gestionnaire
-                    </option>
-
-                    <option value="locataire" {{ old('roles', $user->roles) == 'locataire' ? 'selected' : '' }}>
-                        Locataire
-                    </option>
-
-                    <option value="user" {{ old('roles', $user->roles) == 'user' ? 'selected' : '' }}>
-                        User
-                    </option>
                 </select>
 
                 @error('roles')
@@ -106,8 +99,8 @@
                     Enregistrer les modifications
                 </button>
 
-                <a href="{{ route('users.list') }}"
-                   class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg transition font-medium flex align-center">
+                <a href="@if(auth()->user()->roles === 'admin') {{ route('admin.users.list') }} @else {{ route('gestionnaire.users.list') }} @endif"
+                   class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg transition font-medium flex items-center">
                     Annuler
                 </a>
             </div>

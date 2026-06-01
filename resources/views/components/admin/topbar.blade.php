@@ -61,25 +61,32 @@
             <div class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-2xl cursor-pointer hover:bg-gray-200 transition">
 
                 @if(auth()->user()->image)
+                {{-- Cas 1 : Si l'image vient d'un formulaire (Profil modifié via l'application) --}}
+                @if(str_starts_with(auth()->user()->image, 'avatars/') || str_starts_with(auth()->user()->image, 'user_images/'))
                 <img src="{{ asset('storage/' . auth()->user()->image) }}"
                     alt="Profil de {{ auth()->user()->name }}"
                     class="w-12 h-12 rounded-full object-cover border-2 border-orange-500">
+
+                {{-- Cas 2 : Si c'est l'image locale du Seeder (images/avatars/...) --}}
                 @else
+                <img src="{{ asset(auth()->user()->image) }}"
+                    alt="Profil de {{ auth()->user()->name }}"
+                    class="w-12 h-12 rounded-full object-cover border-2 border-orange-500">
+                @endif
+                @else
+                {{-- Cas 3 : Si aucune image n'est définie --}}
                 <img src="{{ asset('images/default-avatar.png') }}"
                     alt="Profil par défaut"
                     class="w-12 h-12 rounded-full object-cover border-2 border-orange-500 opacity-80">
                 @endif
 
                 <div class="hidden md:block">
-
                     <h3 class="text-sm font-semibold text-gray-800 capitalize">
                         {{ auth()->user()->name }}
                     </h3>
-
                     <p class="text-xs text-gray-500 uppercase font-medium tracking-wider">
                         {{ auth()->user()->roles }}
                     </p>
-
                 </div>
 
                 <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>

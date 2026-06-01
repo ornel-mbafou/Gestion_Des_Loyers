@@ -27,6 +27,7 @@ class VisiteRequest extends FormRequest
              'logement_id' => ['required', 'exists:logements,id'],
             'nom_visiteur' => ['required', 'string', 'max:255'],
             'telephone_visiteur' => ['required', 'string'],
+            'email_visiteur' => ['required','email'],
             'date_visite' => ['required', 'date', 'after:now'], // Doit être une date future !
             'commentaire' => ['nullable', 'string'],
         ];

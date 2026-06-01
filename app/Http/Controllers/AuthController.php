@@ -77,8 +77,16 @@ class AuthController extends Controller
 
             $user->save();
 
-            return redirect()->route('login')->with('succes', 'Votre compte est validé et configuré, vous pouvez vous connecter !');
+
+
+            // 🔴 REVOLUTION : On connecte l'utilisateur AUTOMATIQUEMENT ici
+            Auth::login($user);
+
+            // Et on le renvoie là où il était (sur le détail du logement)
+            // ou par défaut sur l'accueil du site s'il n'y a pas de page précédente
+            return redirect()->intended('/')->with('succes', 'Votre compte est validé ! Vous pouvez maintenant demander votre location.');
         }
+
 
         // Si le code tapé est faux
         return redirect()->back()
@@ -129,10 +137,12 @@ class AuthController extends Controller
                 return redirect()->route('gestionnaire.dashboard')->with('succes', 'Bienvenue sur votre espace Gestionnaire.');
             } elseif ($user->roles === 'locataire') {
                 // ICI, on vérifie STRICTEMENT que c'est un vrai locataire
-                return redirect()->route('locataire.dashboard')->with('succes', 'Bienvenue sur votre espace Locataire.');
+                return redirect()->route('dash-locataire')->with('succes', 'Bienvenue sur votre espace Locataire.');
             } else {
-                // 😊 SÉCURISÉ & PRO : Le rôle est inconnu ou vide, on l'envoie sur la page d'attente
-                return redirect()->route('attente.role');
+                // SÉCURISÉ & PRO : Le rôle est inconnu ou vide, on l'envoie sur la page d'attente
+                // return redirect()->route('attente.role');
+                // Dans ton AuthController (ou ton middleware) au moment de bloquer le simple user :
+                return redirect()->route('attente.role', ['logement_id' => $request->input('logement_id')]);
             }
         }
 

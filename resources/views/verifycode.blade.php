@@ -49,12 +49,11 @@
 
                     <i class="fa-solid fa-circle-exclamation"></i>
 
-                 
+
                 </div>
 
             </div>
 
-            @endif
 
             <!-- FORM -->
             <form action="{{ route('verify') }}"
@@ -110,53 +109,53 @@
 
                 </div>
 
-                 <!-- PASSWORD -->
-                        <div>
+                <!-- PASSWORD -->
+                <div>
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Mot de passe
-                            </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Mot de passe
+                    </label>
 
-                            <div class="relative">
+                    <div class="relative">
 
-                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
 
-                                    <i class="fa-solid fa-lock"></i>
+                            <i class="fa-solid fa-lock"></i>
 
-                                </span>
+                        </span>
 
-                                <input type="password"
-                                    name="password"
-                                    placeholder="********"
-                                    class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
+                        <input type="password"
+                            name="password"
+                            placeholder="********"
+                            class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
-                            </div>
+                    </div>
 
-                        </div>
+                </div>
 
-                        <!-- CONFIRM PASSWORD -->
-                        <div>
+                <!-- CONFIRM PASSWORD -->
+                <div>
 
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Confirmer le mot de passe
-                            </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Confirmer le mot de passe
+                    </label>
 
-                            <div class="relative">
+                    <div class="relative">
 
-                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
 
-                                    <i class="fa-solid fa-lock"></i>
+                            <i class="fa-solid fa-lock"></i>
 
-                                </span>
+                        </span>
 
-                                <input type="password"
-                                    name="password_confirmation"
-                                    placeholder="********"
-                                    class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
+                        <input type="password"
+                            name="password_confirmation"
+                            placeholder="********"
+                            class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 outline-none">
 
-                            </div>
+                    </div>
 
-                        </div>
+                </div>
 
                 <!-- BUTTON -->
                 <button type="submit"
@@ -177,4 +176,3 @@
 </div>
 
 @endsection
-

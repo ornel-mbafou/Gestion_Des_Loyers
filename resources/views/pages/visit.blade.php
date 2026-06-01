@@ -22,9 +22,9 @@
     <div class="max-w-4xl mx-auto px-4 lg:px-8">
         <div class="bg-gray-100 rounded-2xl shadow-sm p-10">
 
-            <form action="#" method="POST" class="space-y-6">
+            <form action="{{ route('visites.store') }}" method="POST" class="space-y-6">
 
-                @csrf <input type="hidden" name="logement_id" value="">
+                @csrf <input type="hidden" name="logement_id" value="{{ $logement->id }}">
 
                 <div>
                     <label class="block mb-2 font-medium text-gray-700">Nom complet</label>
@@ -33,7 +33,7 @@
                         required
                         placeholder="Entrez votre nom"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    @error('nom_visiteur') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+
                 </div>
 
                 <div>
@@ -43,7 +43,12 @@
                         required
                         placeholder="Ex : +237 6 99 99 99 99"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    @error('telephone_visiteur') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Adresse Email</label>
+                    <input type="email" name="email_visiteur" required class="w-full border px-4 py-3 rounded-lg" placeholder="exemple@gmail.com">
                 </div>
 
                 <div>
@@ -51,7 +56,6 @@
                     <input type="datetime-local" name="date_visite" value="{{ old('date_visite') }}"
                         required
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    @error('date_visite') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
@@ -59,7 +63,6 @@
                     <textarea rows="5"
                         name="commentaire" placeholder="Donnez des détails si nécessaire..."
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500">{{ old('commentaire') }}</textarea>
-                    @error('commentaire') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <button type="submit"

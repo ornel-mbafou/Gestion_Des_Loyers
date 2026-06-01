@@ -22,9 +22,9 @@ return new class extends Migration
             $table->float('prix');
             $table->enum('statut', ['disponible', 'loué', 'en maintenance'])->default('disponible');
             $table->string('image1');
-            $table->string('image2')->nullable();  
+            $table->string('image2')->nullable();
             $table->string('image3')->nullable();
-
+            $table->foreignId('gestionnaire_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

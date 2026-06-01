@@ -5,7 +5,7 @@
     <!-- LOGO -->
     <div class="h-20 flex items-center px-6 border-b">
 
-        <a href="/" class="flex items-center gap-3">
+        <a href="{{route('home')}}" class="flex items-center gap-3">
 
             <!-- ICON -->
             <div
@@ -45,7 +45,7 @@
             <!-- DASHBOARD -->
             <li>
 
-                <a href="#"
+                <a href="{{route('admin.dashboard')}}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl bg-orange-500 text-white shadow-md">
 
                     <i class="fa-solid fa-house"></i>
@@ -62,7 +62,7 @@
             <!-- Utilisaturs -->
             <li>
 
-                <a href="{{route('users.list')}}"
+                <a href="{{route('admin.users.list')}}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-user-tie"></i>
@@ -78,7 +78,7 @@
             <!-- GESTIONNAIRES -->
             <li>
 
-                <a href="{{ route('users.list', ['role' => 'gestionnaire']) }}"
+                <a href="{{ route('admin.users.list', ['role' => 'gestionnaire']) }}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-user-tie"></i>
@@ -94,7 +94,7 @@
             <!-- LOGEMENTS -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('admin.logement.list') }}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-building"></i>
@@ -110,7 +110,7 @@
             <!-- LOCATAIRES -->
             <li>
 
-                <a href="{{ route('users.list', ['role' => 'locataire']) }}"
+                <a href="{{ route('admin.users.list', ['role' => 'locataire']) }}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-users"></i>
@@ -125,24 +125,19 @@
 
             <!-- CONTRATS -->
             <li>
-
-                <a href="#"
-                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
-
-                    <i class="fa-solid fa-file-contract"></i>
-
-                    <span>
-                        Contrats
+                <a href="{{ route('admin.contrats.index') }}"
+                    class="flex items-center gap-4 px-4 py-3 rounded-2xl text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition duration-300">
+                    <i class="fa-solid fa-file-contract text-lg"></i>
+                    <span class="font-medium">
+                        Contrats & Demandes
                     </span>
-
                 </a>
-
             </li>
 
             <!-- PAIEMENTS -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('admin.paiements.index')}}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-money-bill-wave"></i>
@@ -158,7 +153,7 @@
             <!-- VISITES -->
             <li>
 
-                <a href="#"
+                <a href="{{ route('admin.visites.index')}}"
                     class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                     <i class="fa-solid fa-calendar-check"></i>
@@ -185,7 +180,7 @@
                 <!-- PROFILE -->
                 <li>
 
-                    <a href="#"
+                    <a href="{{route('admin.profile.show')}}"
                         class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-orange-100 hover:text-orange-500 transition">
 
                         <i class="fa-solid fa-user"></i>

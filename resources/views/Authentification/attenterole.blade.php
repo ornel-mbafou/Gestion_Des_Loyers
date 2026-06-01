@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" class="h-full bg-slate-50">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,12 @@
     <!-- Police d'écriture moderne -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
     </style>
 </head>
+
 <body class="flex min-h-full items-center justify-center p-4">
 
     <div class="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-lg sm:p-10">
@@ -36,14 +40,24 @@
             Veuillez contacter votre gestionnaire ou l'administrateur du site pour activer vos accès.
         </p>
 
-        <!-- Bouton Déconnexion / Retour -->
-        <div class="mt-8">
+        <div class="mt-8 space-y-3">
+            {{-- Si l'utilisateur est arrivé ici en venant d'un logement spécifique, on lui permet d'y retourner --}}
+            @if(session('logement_id'))
+            <a href="{{ route('logement.detail', session('logement_id')) }}"
+                class="inline-block w-full text-center rounded-xl bg-orange-500 px-6 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 transition-colors duration-200 cursor-pointer">
+                <i class="fa-solid fa-house"></i> Retourner au logement choisi
+            </a>
+            @endif
+
+            {{-- Ton bouton de déconnexion d'origine, qui sert de vraie sortie sécurisée --}}
             <a href="{{ route('logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-               class="inline-block w-full rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-xs hover:bg-slate-800 transition-colors duration-200 cursor-pointer">
-                Retour
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                class="inline-block w-full text-center rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-semibold text-white shadow-xs hover:bg-slate-800 transition-colors duration-200 cursor-pointer">
+                Déconnexion
             </a>
         </div>
+
+
 
         <!-- Formulaire de déconnexion Laravel caché -->
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
@@ -52,4 +66,5 @@
     </div>
 
 </body>
+
 </html>

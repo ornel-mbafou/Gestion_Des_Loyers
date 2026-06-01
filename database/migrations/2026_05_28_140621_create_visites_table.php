@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('logement_id')->constrained('logements')->onDelete('cascade');
             $table->string('nom_visiteur');
             $table->string('telephone_visiteur');
-
+            $table->string('email_visiteur');
             $table->dateTime('date_visite'); // Date et heure du RDV
             $table->enum('statut', ['en_attente', 'effectuee', 'annulee'])->default('en_attente');
             $table->text('commentaire')->nullable(); // Rapport de visite

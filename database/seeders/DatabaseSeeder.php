@@ -27,5 +27,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
         ]);
+
+
+
+        //execution de Logementseeder
+
+        $this->call([
+        LogementSeeder::class,
+    ]);
     }
 }
